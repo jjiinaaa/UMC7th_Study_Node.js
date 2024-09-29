@@ -210,7 +210,7 @@
     <img src="../chapter01/image/NtoN.png" /> <br />
 
     1. N to M
-    2. N to 1 관계 테이블 1 to N : 사
+    2. N to 1 관계 테이블 1 to N
 
 ---
 
