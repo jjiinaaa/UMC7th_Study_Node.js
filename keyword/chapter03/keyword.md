@@ -202,3 +202,23 @@
     2. HTTP API 클라이언트를 설정 : 이 도구를 사용하면 수신된 API 키를 사용하여 API 요청을 쉽게 구성 가능
     3. API 클라이언트가 없는 경우 API 설명서를 참조하여 브라우저에서 요청을 직접 구성
     4. 새 API 구문에 파악 후, 코드에서 이를 사용하기 시작
+
+https://dev-cool.tistory.com/32
+
+https://cocoon1787.tistory.com/514?category=925946
+
+- HTTP Header 구조
+  - [https://aday7.tistory.com/entry/Web-HTTP-Header-구조-Request-headerResponse-header](https://aday7.tistory.com/entry/Web-HTTP-Header-%EA%B5%AC%EC%A1%B0-Request-headerResponse-header)
+- Status Code
+  - https://sanghaklee.tistory.com/61
+- 객체 자료형
+  - https://sweets1327.tistory.com/61
+  - https://limsungju.tistory.com/6
+- JSON
+  - https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/JSON
+- [https://jinhos-devlog.tistory.com/entry/Chapter-6-API-URL-설계-프로젝트-세팅하기#✒️ 3. API Endpoint-1](https://jinhos-devlog.tistory.com/entry/Chapter-6-API-URL-%EC%84%A4%EA%B3%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0#%E2%9C%92%EF%B8%8F%203.%20API%20Endpoint-1)
+- REST API 모범 사례
+  - https://www.freecodecamp.org/korean/news/rest-api-mobeom-sarye-rest-endeupointeu-seolgye-yesi/
+  - https://velog.io/@wo_ogie/restful-api-design#pagination
+-
+- [https://velog.io/@chchaeun/인증과](https://velog.io/@chchaeun/%EC%9D%B8%EC%A6%9D%EA%B3%BC)
