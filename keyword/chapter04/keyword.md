@@ -3,8 +3,11 @@
   - 역사 : 넷스케이프 사에서 개발한 JS가 인기를 끌고, MS 사에서 개발한 IE 3(인터넷 익스플로어)에 JSscript로 JS를 탑재했지만, 두 내용이 매우 달랐음. 지속적인 기능 추가로 두 언어가 매우 달라지면서 ECMA에서 JS 표준을 정함. ECMA에서는 다른 표준안도 정하기에 숫자를 붙였고 ECMA 262가 JS 표준 규격으로, ECMA Script가 ES로 불리기 시작함.
   - ES6 : ECMA Script 6으로 대폭적인 갱신을 한 2015년을 기준으로, 이후에는 조그만 변화로 버전이 업데이트되기에 통칭하여 ES6이라 불림.
 - ES6
+
   - ES6의 주요 변화 및 특징
+
     1. Class
+
        - 정의 : OOP의 핵심 기능. 객체를 생성하기 위한 템플릿.
        - 특징
          - 코드를 더욱 안전하게 캡슐화할 수 있음.
@@ -13,9 +16,11 @@
          - 블록 스코프
          - 호이스팅 안됨. ⇒ 정의 후 사
        - 방법
+
          - class 선언: `class` 키워드와 함께 클래스 이름 작성.
          - `new` 키워드 : class 매서드와 속성에 액세스
          - 다른 class에서 상속 :  `extends` 키워드 다음에 상속할 class의 이름을 사용
+
            ```jsx
            class myClass {
            	**constructor**(name, age) {
@@ -40,11 +45,13 @@
            profile.sayHello(); // 안녕 영희 너의 나이는 22살이다.
            profile.userName(); // 영희
            ```
+
          - class의 메소드 안에서 `super` 키워드 사용
          - 정적 메소드 : `static`
          - Getter : `get` / Setter : `set`
          - 클래스에서 일반적인 방식으로 프로퍼티를 선언하고 할당하면 **Public Property(공개 프로퍼티)** → 외부에서 프로퍼티에 접근하여 값을 사용하거나 수정이 가능
          - 클래스에서 프로퍼티 앞에 `#` 키워드를 작성하여 선언하면 **Private Property (비공개 프로퍼티)** → 오직 클래스 안에서만 사용, 변경이 가능. 외부 접근 불가
+
            ```jsx
            class Person {
              constructor(name, age) {
@@ -74,7 +81,9 @@
            let kim = new introducePerson("kim", "23", "seoul", "개발자");
            console.log(kim.introduce());
            ```
+
     2. let & const
+
        1. var
           - 재정의, 재선언 모두 가능
           - 문제점
@@ -89,11 +98,14 @@
        3. const
           - 재정의, 재선언 모두 불가 (객체와 사용할 때는 예외)
           - 블록 스코프
+
        - Hoisting
+
          - 정의 : 일반적으로 위에서 아래로 코드가 실행되지만, **변수와 함수의 메모리 공간을 선언 시 미리 할당하는 것**
          - 예시: var 선언한 변수의 경우 호이스팅 시 undefined로 변수 초기화 / let, co로 선언한 변수의 경우 호이스팅 시 변수 초기화 X
          - 원인 : JS 엔진이 전체 코드를 스캔 후, 실행 컨텍스트에 미리 기록하기 때문.
          - 함수 호이스팅 : 선언, 초기화, 할당 모두 가능
+
            ```jsx
            test("배고파"); // 호이스팅 대상
 
@@ -103,8 +115,10 @@
 
            test();
            ```
+
          - var 호이스팅 : 선언, 초기화 가능 / 할당 불가
          - let, const 호이스팅 : 호이스팅되지만 그 전에는 접근 불가능.
+
            ```jsx
            console.log(name1); // undefined
            var name1 = "James";
@@ -116,7 +130,9 @@
            console.log(name3); // ReferenceError
            let name3 = "James";
            ```
+
          - TDZ(Temporal Dead Zone) : let, const로 선언된 변수는 호이스팅이 되었지만 접근을 하지 못함. 그래서 `console.log(name2)`, `console.log(name3)` 는 **일시적으로 죽은 구역. name2와 name3 선언문이 나오기 전까지 접근 불가능 영역**
+
     3. Arrow Function
 
        - 정의 : 함수 표현식의 간결성, 단순성 높이는 문법
@@ -158,8 +174,10 @@
          - 중괄호는 본문 여러 줄로 구성, 중괄호를 사용했다면 return으로 결괏값을 반환
 
     4. Promises
+
        - 정의 : 비동기 코드를 쓰는 방식
        - 예시 : API에서 데이터를 가져오거나 실행하는데 시간이 걸리는 함수를 가지고 있을 때 사용
+
          ```jsx
          const myPromise = () => {
            return new Promise((resolve, reject) => {
@@ -172,7 +190,9 @@
 
          // 콘솔을 기록하면 Promise가 반환. **따라서 데이터를 가져온 후 함수를 실행하려면 Promise를 사용해야 함.** P**romise는 두 개의 매개 변수를 사용하며 resolve및 reject 예상 오류를 처리 가**
          ```
+
        - fetch 함수는 Promise 자체를 반환
+
          ```jsx
          const url = "https://jsonplaceholder.typicode.com/posts";
          const getData = (url) => {
@@ -183,11 +203,14 @@
            .then((data) => data.json())
            .then((result) => console.log(result));
          ```
+
     5. 비구조화 할당
+
     - 정의 : 배열 또는 객체의 값을 새 변수에 더 쉽게 할당 / ES5에서는 각 변수에 객체의 속성들을 일일이 할당해야하지만, ES6에서는 객체의 속성을 얻기 위해 값을 중괄호 내에 넣음.
     - 특징
       - 속성 이름과 동일한 변수 이름 지정 - 아닐 시 undefined
       - 다른 이름을 지정할 시에는 : 사용
+
     ```jsx
     // ES5 문법
     const contacts = {
@@ -204,6 +227,7 @@
     console.log(name); // 영희
     console.log(age); // 22
     ```
+
     ```jsx
     // ES6 문법
     const contacts = {
@@ -227,6 +251,7 @@
     console.log(value2);
     console.log(value3);
     ```
+
     1. Template Literals
 
        ```jsx
@@ -266,7 +291,9 @@
        ```
 
     3. Rest parameter(나머지 매개 변수) & Spread operator(확산 연산자)
+
        - Rest parameter : 배열의 인수를 가져오고 새 배열을 반환
+
          ```jsx
          const arr = ['영희', 20, '열성적인 자바스크립트', '안녕', '지수', '어떻게 지내니?'];
 
@@ -279,7 +306,9 @@
 
          console.log(Func(rest)); // 안녕 지수 어떻게 지내니?
          ```
+
        - Spread operator : 인수뿐만 아니라 배열 자체를 가짐.
+
          ```jsx
          const arr = [
            "영희",
@@ -297,12 +326,15 @@
          console.log(Func(arr));
          // 출력 => ["영희", 20, "열성적인 자바스크립트", "안녕", "지수", "어떻게 지내니?"]
          ```
+
   - ES6를 중요시 하는 이유
     ES6 전의 버전에서의 다양한 문제점을 토대로 큰 변화가 일어났기 때문. 여러 JS 언어의 한계점을 해결함.
     - 화살표 함수는 기존의 함수 표현식보다 간결
     - this 바인딩과 관련한 혼돈을 줄여줌.
     - 클래스와 모듈 시스템은 대규모 애플리케이션의 개발과 유지보수 용이 (코드의 구조화와 의존성 파악 용이하기 때문)
+
 - ES Modules
+
   - 정의 : `import`, `export` 를 사용해 분리된 자바스크립트 파일끼리 서로 접근할 수 있는 시스템
   - 생긴 원인 : JQuery가 생겨나고 어플리케이션 규모가 커지는 결과로 script 파일을 나누기 시작하면서, 파일 간의 변수, 함수 등을 전달하는 방법이 필요해짐. ⇒ ESM 이전에는 전역 스코프로 각 script 파일을 사용했지만, 파일 순서나 전역 오염 (하위 script가 상위 script 값 쉽게 변경) 등등 **유지보수의 어려움**이 생김.
   - 특징
@@ -345,14 +377,19 @@
       - 순환 참조의 경우, CommonJS는 빈 객체를. ESM은 ReferenceError 발생
         - [https://yoeubi28.medium.com/commonjs-esm-모듈-순환-참조-차이-e5cd1047deaf](https://yoeubi28.medium.com/commonjs-esm-%EB%AA%A8%EB%93%88-%EC%88%9C%ED%99%98-%EC%B0%B8%EC%A1%B0-%EC%B0%A8%EC%9D%B4-e5cd1047deaf)
   - **사용 방법**
+
     - export
+
       - named export : 한 파일에서 여러 개를 export할 때 사용 가능
+
         - `export`한 이름과 **동일한 이름**으로 `import`해야 하며, 중괄호에 묶어서 `import` 해야 한다.
+
         ```jsx
         // named export 기본 형식
         export { 모듈명1, 모듈명2 };
         import { 모듈명1, 모듈명2 } from "js 파일 경로";
         ```
+
         1. 내보내고자 하는 변수, 함수 앞에 export 붙이기
 
            ```jsx
@@ -363,13 +400,17 @@
 
         2. 묶어서 내보내기
            `export { a, 함수명, 클래스명 }`
+
       - default export : 하나의 파일에서 단 하나의 변수 또는 클래스 등등만 `export` 가능
+
         - 또한 `import` 할 때 아무 이름으로나 자유롭게 `import` 가능하며, 중괄호에 묶지 않아도 된다.
+
         ```jsx
         // default export 기본 형식
         export default 모듈명;
         import 모듈명 from "js 파일 경로";
         ```
+
         1. 선언 및 내보내기 동시에 함. 변수, 함수 앞에 export default 붙이기
 
            ```jsx
@@ -398,7 +439,9 @@
            class 클래스명{}
            export default 클래스명
            ```
+
     - import
+
       - named export를 import
         ```jsx
         import { a } from "파일명.js";
@@ -406,6 +449,7 @@
         import { Class } from "파일명.js";
         ```
       - default export를 import
+
         ```jsx
         import a from "파일명.js";
         import 함수명 from "파일명.js";
@@ -413,7 +457,9 @@
 
         // default의 경우 변수명은 원하는대로 바꿔도 된다.
         ```
+
     - as : 다른 이름으로 import 하려면 `as`를 사용하고, 한 파일에 있는 클래스나 변수들을 한 번에 import 하려면 `* as`를 사용한다.
+
       ```jsx
       // named export는 중괄호 포함 import
       import { named1, named2 } from './example.js';
@@ -424,7 +470,9 @@
       // 한 파일에 있는 **모든 클래스나 변수를 * as를 사용하여 한 번에 import**
       import *** as Hello** from './example.js';
       ```
+
     - 예시
+
       ```jsx
       // detailComponent.js - detail 함수 export
       export default function detail(name, age) {
@@ -444,9 +492,10 @@
       console.log(userProfile);
       console.log(getPosts);
       ```
+
 - 프로젝트 아키텍처
   - 정의 : 시스템을 구성하는 각 요소 간의 관계를 정의하는 기본 구조
-    ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f1912130-0409-4e90-a90f-6091ae253e73/be529c40-bd56-451c-ba01-84f0a39b6ba2/image.png)
+    <img src="./img/image (1).png" src="프로젝트 아키택처 구조">
   - 프로젝트 아키텍처가 중요한 이유
     - 시스템의 구조를 정의하고, 각 구성 요소 간의 관계를 명확성을 높임. ⇒ **프로젝트의 확장성과 유지보수성** (프로젝트의 요구사항을 명확히 이해)
     - 고려해야 할 요소
@@ -459,7 +508,7 @@
     - 정의 : **서비스**라는 소프트웨어 구성 요소를 사용해 비즈니스 애플리케이션을 생성하는 소프트웨어 개발 방식
       - 예시 : 조직 내의 여러 비즈니스 프로세스에서 사용자 인증 기능이 필요할 경우, 모든 비즈니스 프로세스에 대해 인증 코드를 재작성하는 대신에 **단일 인증 서비스를 생성해서 모든 애플리케이션에 재사용**
     - **전체 시스템에 대해 컴포넌트 들을 모아서 서비스 단위로 모듈화** 한 것. 이런 서비스가 기본 구성요소로 비즈니스 기능을 제공하며 **서비스들 간에 결합을 통해 기능을 제공.** 이렇게 함으로써 **각 서비스는 다른 애플리케이션에서 재사용**할 수 있는 장점
-    !https://blog.kakaocdn.net/dn/pbdE9/btsGeKPx5d3/djDdhM4XKYBXY3kKv9wY51/img.png
+      !https://blog.kakaocdn.net/dn/pbdE9/btsGeKPx5d3/djDdhM4XKYBXY3kKv9wY51/img.png
     - 장점 (모든 프로세스가 단일 단위로 실행되는 기존의 모놀리식 아키텍처에 비해)
       1. 출시 기간 단축
          - 개발자는 시간과 비용을 절약하기 위해 다양한 비즈니스 프로세스에서 서비스를 재사용. 새로 코드를 작성하고 통합을 수행하는 것보다 SOA를 사용하여 훨씬 빠르게 애플리케이션을 모을 수 있음.
@@ -467,12 +516,10 @@
          - 모놀리식 애플리케이션의 큰 코드 블록보다 **작은 서비스를 생성, 업데이트 및 디버그하는 것**이 더 쉽움. SOA에서 서비스를 수정해도 비즈니스 프로세스의 전체 기능에는 영향 없음.
       3. 높은 적응성
          - SOA는 기술 발전에 더 잘 적응하기에 효율적이고 **경제적으로 애플리케이션을 현대화**할 수 있음. 예를 들어 의료 기관은 최신 클라우드 기반 애플리케이션에서 기존 전자 건강 기록 시스템의 기능을 사용 가능.
-      ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f1912130-0409-4e90-a90f-6091ae253e73/b5164ebf-f314-42a0-8e0c-8f649a9b975d/image.png)
   - MVC 패턴 (모델-뷰-컨트롤러)
     - 정의 : 사용자 인터페이스, 데이터 및 논리 제어를 구현하는데 널리 사용되는 소프트웨어 디자인 패턴. **소프트웨어의 비즈니스 로직과 화면을 구분하는데 중점**
-      ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f1912130-0409-4e90-a90f-6091ae253e73/f7fb0d06-b028-4278-a7a4-e2eab14121e8/image.png)
+      <img src="./img/image (2).png" src="MVC pattern">
     - ex. 쇼핑 리스트 앱 (이번 주에 사야할 각 항목의 이름, 개수, 가격의 목록)
-      ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f1912130-0409-4e90-a90f-6091ae253e73/8d7dedd5-fb0d-4735-97c3-7b60e0733eff/image.png)
     - **모델**: 데이터와 비즈니스 로직을 관리
       - 앱이 포함해야할 데이터가 무엇인지를 정의
       - **데이터의 상태가 변경**되면, 모델을 일반적으로 **뷰**에게 알리며(따라서 필요한 대로 화면을 변경 가능) 가끔 **컨트롤러**에게 알리기도 함. (업데이트 된 뷰를 조절하기 위해 다른 로직이 필요한 경우).
@@ -526,7 +573,7 @@
     - 입력 값을 보여주거나, 결과물 해석 및 전파 → 어플리케이션 서비스 로직
   - 예시: 홈페이지 회원가입 ⇒ **도메인**
     - _회원가입 이라는 현실 문제에 대한 의사결정을 하는가?_
-    사용자는 회원가입 양식 폼에 회원정보를 작성하고, 회원가입 버튼을 누르면 회원가입이 진행되지만, 프로그래머는 이 과정 중 **아이디 중복 검사, 본인 인증, 비밀번호 재검사 등 유저가 통과해야 할 것을 설계**
+      사용자는 회원가입 양식 폼에 회원정보를 작성하고, 회원가입 버튼을 누르면 회원가입이 진행되지만, 프로그래머는 이 과정 중 **아이디 중복 검사, 본인 인증, 비밀번호 재검사 등 유저가 통과해야 할 것을 설계**
     - **비즈니스 로직 : 하나는 중복 아이디가 있는지 없는지를 검사하기 위한 일련의 과정. 데이터 가공을 담당하는것** (**Logic 영역, Model 영역)**
       1. 회원이 작성한 아이디 값 저장하기 - _어플리케이션 서비스 로직_
       2. 회원정보가 있는 데이터베이스 연결 - _어플리케이션 서비스 로직 (Persistence)_
@@ -545,6 +592,6 @@
   1. **Service에서 DTO 생성 시**
      - DB에서 DB 테이블을 repositoty가 받아 넘겨 줄 때, Service → Controller로 넘겨줌. 이 때 DB 테이블을 DTO로 생성. Controller는 DTO를 받아 사용
      - 장점: DTO로 데이터를 걸러 Controller로 전달하여 Controller에서 작업할 때 DB의 일부 민감한 정보를 숨김.
-  **2. Controller에서 DTO 생성**
+       **2. Controller에서 DTO 생성**
   - 클라이언트에게 res.body에 json 객체에 데이터를 받았을 때, Controller → Service로 넘겨줌. 이때, 데이터를 DTO로 생성. Service는 DTO를 받아 사용
   - 장점: 서비스 함수의 범용성 증가 ⇒ 유지 보수에 용이
